@@ -1,4 +1,4 @@
-package com.hiberus.payment_order_service.infrastructure.persistence;
+package com.hiberus.payment_order_service.infrastructure.r2dbc;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

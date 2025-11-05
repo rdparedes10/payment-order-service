@@ -1,0 +1,16 @@
+### Fragmento generado por IA - Arquitectura del proyecto
+
+src/
+ ├── domain/
+ │    ├── model/
+ │    ├── ports/
+ ├── application/
+ │    ├── usecases/
+ ├── infrastructure/
+ │    ├── rest/
+ │    ├── persistence/
+ │    └── config/
+pom.xml con dependencias:
+ - spring-boot-starter-webflux
+ - spring-boot-starter-data-r2dbc
+ - openapi-generator-maven-plugin

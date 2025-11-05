@@ -1,4 +1,4 @@
-package com.hiberus.payment_order_service.infrastructure.persistence;
+package com.hiberus.payment_order_service.infrastructure.r2dbc;
 
 
 import com.hiberus.payment_order_service.domain.model.PaymentOrder;

@@ -1,0 +1,16 @@
+OpenAPI 3.0 draft generado por IA (fragmento):
+
+paths:
+  /payment-initiation/payment-orders:
+    post:
+      summary: Initiate a Payment Order
+      operationId: initiatePaymentOrder
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentOrderInitiateRequest'
+      responses:
+        '201':
+          description: Created
+...

@@ -1,0 +1,11 @@
+### Fragmento generado por IA - Prueba unitaria
+
+@Test
+void shouldInitiatePaymentOrderSuccessfully() {
+    PaymentOrderEntity entity = new PaymentOrderEntity(...);
+    when(repository.save(any())).thenReturn(Mono.just(entity));
+
+    StepVerifier.create(service.createOrder(entity))
+        .expectNextMatches(saved -> saved.getStatus().equals("INITIATED"))
+        .verifyComplete();
+}
