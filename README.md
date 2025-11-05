@@ -38,7 +38,7 @@ El objetivo es garantizar:
 
 ```bash
 # Clonar el repositorio
-git clone https://github.com/<usuario>/payment-order-service.git
+git clone https://github.com/rdparedes10/payment-order-service.git
 cd payment-order-service
 
 # Generar clases desde OpenAPI
