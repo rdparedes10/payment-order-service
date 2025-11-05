@@ -1,0 +1,51 @@
+version: '3.9'
+
+services:
+  # ======================
+  # PostgreSQL Database
+  # ======================
+  postgres:
+    image: postgres:16
+    container_name: postgres-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: paymentdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - payment-network
+
+  # ======================
+  # Spring Boot Application
+  # ======================
+  payment-order-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: payment-order-service
+    depends_on:
+      - postgres
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_R2DBC_URL: r2dbc:postgresql://postgres:5432/paymentdb
+      SPRING_R2DBC_USERNAME: postgres
+      SPRING_R2DBC_PASSWORD: admin
+      SPRING_MAIN_WEB_APPLICATION_TYPE: reactive
+      SPRINGDOC_SWAGGER_UI_PATH: /swagger-ui.html
+      SERVER_PORT: 8080
+    ports:
+      - "8080:8080"
+    networks:
+      - payment-network
+
+
+networks:
+  payment-network:
+    driver: bridge
+
+
+

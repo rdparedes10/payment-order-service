@@ -1,0 +1,112 @@
+openapi: 3.0.3
+info:
+  title: Payment Order API
+  version: 1.0.0
+  description: API contract-first para órdenes de pago basado en WSDL legado y BIAN Payment Initiation
+servers:
+  - url: http://localhost:8080
+paths:
+  /payment-initiation/payment-orders:
+    post:
+      summary: Inicia una orden de pago
+      operationId: createPaymentOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentOrderRequest'
+      responses:
+        '200':
+          description: Orden de pago creada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentOrderResponse'
+  /payment-initiation/payment-orders/{id}:
+    get:
+      summary: Recupera una orden de pago por ID
+      operationId: getPaymentOrderById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Detalles de la orden de pago
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentOrderResponse'
+  /payment-initiation/payment-orders/{id}/status:
+    get:
+      summary: Recupera el estado de la orden de pago
+      operationId: getPaymentOrderStatus
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Estado de la orden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentOrderStatusResponse'
+
+components:
+  schemas:
+    PaymentOrderRequest:
+      type: object
+      properties:
+        externalId:
+          type: string
+        debtorIban:
+          type: string
+        creditorIban:
+          type: string
+        amount:
+          type: number
+          format: double
+        currency:
+          type: string
+        remittanceInfo:
+          type: string
+        requestedExecutionDate:
+          type: string
+          format: date
+      required:
+        - externalId
+        - debtorIban
+        - creditorIban
+        - amount
+        - currency
+        - requestedExecutionDate
+    PaymentOrderResponse:
+      type: object
+      properties:
+        paymentOrderId:
+          type: string
+        status:
+          type: string
+      required:
+        - paymentOrderId
+        - status
+    PaymentOrderStatusResponse:
+      type: object
+      properties:
+        paymentOrderId:
+          type: string
+        status:
+          type: string
+        lastUpdate:
+          type: string
+          format: date-time
+      required:
+        - paymentOrderId
+        - status
+        - lastUpdate

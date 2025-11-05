@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: payment-order-service
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/paymentdb
+    username: postgres
+    password: admin
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+
+logging:
+  level:
+    org.springframework.r2dbc: DEBUG
