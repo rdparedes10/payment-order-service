@@ -26,8 +26,54 @@ El objetivo es garantizar:
 
 ---
 
-## ⚙️ Pasos para Ejecución Local
+## 🌐 Acceso y Pruebas de la API
 
+Una vez que el servicio esté en ejecución (ya sea localmente o con Docker), se puede acceder y probar la API mediante **Swagger UI** o **Postman**.
+
+---
+
+### 🧭 Swagger UI (Documentación Interactiva)
+
+✅ **La API estará disponible en:**  
+👉 [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+
+📄 **Contrato OpenAPI (JSON):**  
+[http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
+
+Desde **Swagger UI** podrás:
+- Visualizar la documentación generada automáticamente desde el contrato `openapi/payment-order.yaml`.
+- Probar los endpoints directamente desde el navegador.
+- Ver ejemplos, parámetros y modelos definidos.
+
+---
+
+### 🧰 Colección de Postman
+
+📂 **Ubicación:**
+postman/Hiberus Payment.postman_collection.json
+
+Esta colección incluye las operaciones principales del servicio:
+
+| Método | Endpoint | Descripción |
+|--------|-----------|-------------|
+| **POST** | `/payment-initiation/payment-orders` | Crea una nueva orden de pago |
+| **GET** | `/payment-initiation/payment-orders/{id}` | Recupera una orden existente |
+| **GET** | `/payment-initiation/payment-orders/{id}/status` | Obtiene el estado actual de la orden |
+
+#### ▶️ Pasos para usar la colección
+1. Abre **Postman**.
+2. Haz clic en **Import → File** y selecciona `postman/Payment.postman_collection.json`
+3. Ejecuta las peticiones en el siguiente orden:
+- `POST` → crear orden de pago
+- `GET` → consultar orden
+- `GET` → consultar estado
+
+💡 También puedes automatizar las pruebas con **Newman**:
+```bash
+newman run postman/PaymentOrderCollection.json
+
+
+## ⚙️ Pasos para Ejecución Local
 ### 🧱 Requisitos previos
 - Java 21+
 - Maven 3.9+

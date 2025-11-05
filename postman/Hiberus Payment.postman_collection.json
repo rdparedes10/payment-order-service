@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "5e3a9cb3-5e22-4154-b017-d392eddc7740",
+		"name": "Hiberus Payment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5709970",
+		"_collection_link": "https://planetary-star-493475.postman.co/workspace/BayteqConecta~fb59a74a-1b54-4a26-9395-a4c8befc7fb3/collection/5709970-5e3a9cb3-5e22-4154-b017-d392eddc7740?action=share&source=collection_link&creator=5709970"
+	},
+	"item": [
+		{
+			"name": "Create Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"externalId\": \"EXT-123\",\r\n  \"debtorIban\": \"EC12DEBTOR\",\r\n  \"creditorIban\": \"EC98CREDITOR\",\r\n  \"amount\": 150.75,\r\n  \"currency\": \"USD\",\r\n  \"remittanceInfo\": \"Factura 001-123\",\r\n  \"requestedExecutionDate\": \"2025-11-05\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/payment-initiation/payment-orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment-initiation",
+						"payment-orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetOrderStatusById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/payment-initiation/payment-orders/1/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment-initiation",
+						"payment-orders",
+						"1",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetOrderById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/payment-initiation/payment-orders/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment-initiation",
+						"payment-orders",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
