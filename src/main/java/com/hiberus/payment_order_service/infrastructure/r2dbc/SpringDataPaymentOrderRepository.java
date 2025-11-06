@@ -1,5 +1,6 @@
 package com.hiberus.payment_order_service.infrastructure.r2dbc;
 
+import com.hiberus.payment_order_service.infrastructure.persistence.entity.PaymentOrderEntity;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import org.springframework.stereotype.Repository;
 

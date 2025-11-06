@@ -1,8 +1,9 @@
-package com.hiberus.payment_order_service.infrastructure.r2dbc;
+package com.hiberus.payment_order_service.infrastructure.persistence;
 
 import com.hiberus.payment_order_service.domain.model.PaymentOrder;
 import com.hiberus.payment_order_service.domain.model.PaymentOrderId;
 import com.hiberus.payment_order_service.domain.model.PaymentOrderStatus;
+import com.hiberus.payment_order_service.infrastructure.persistence.entity.PaymentOrderEntity;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

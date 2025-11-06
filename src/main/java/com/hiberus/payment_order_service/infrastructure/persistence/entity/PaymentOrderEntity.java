@@ -1,4 +1,4 @@
-package com.hiberus.payment_order_service.infrastructure.r2dbc;
+package com.hiberus.payment_order_service.infrastructure.persistence.entity;
 
 import java.time.LocalDate;
 
