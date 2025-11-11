@@ -12,3 +12,9 @@ spring:
 logging:
   level:
     org.springframework.r2dbc: DEBUG
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
