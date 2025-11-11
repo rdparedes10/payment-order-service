@@ -1,5 +1,6 @@
 package com.hiberus.payment_order_service.application;
 
+
 import com.hiberus.payment_order_service.api.model.PaymentOrderRequest;
 import com.hiberus.payment_order_service.api.model.PaymentOrderResponse;
 import com.hiberus.payment_order_service.api.model.PaymentOrderStatusResponse;
@@ -9,7 +10,6 @@ import com.hiberus.payment_order_service.domain.model.PaymentOrderStatus;
 import com.hiberus.payment_order_service.domain.repository.PaymentOrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Mono;
 
 import java.time.OffsetDateTime;
@@ -20,7 +20,7 @@ public class PaymentOrderService {
 
     private final PaymentOrderRepository repository;
 
-    @Transactional
+
     public Mono<PaymentOrderResponse> createOrder(PaymentOrderRequest request) {
         PaymentOrder order = PaymentOrder.builder()
                 .externalId(request.getExternalId())
